@@ -10,7 +10,7 @@ function Github() {
         Certificate Of <strong className="purple">Appreciation</strong>
       </h1>
       {/* <GitHubCalendar
-        username="soumyajit4419"
+        username="Abinash4419"
         blockSize={15}
         blockMargin={5}
         color="#c084f5"
