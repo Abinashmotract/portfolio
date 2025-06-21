@@ -56,7 +56,7 @@ function Home2() {
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+              <img style={{borderRadius:"50%"}} src="https://media.licdn.com/dms/image/v2/D4D03AQFdOqHAfs_6QQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1709892867050?e=1755734400&v=beta&t=fciCget5jDaJyxuT5GaWXAIKHSpe54JybGsL51KfgBY" className="img-fluid" alt="avatar" />
             </Tilt>
           </Col>
         </Row>
