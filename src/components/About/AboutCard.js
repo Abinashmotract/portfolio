@@ -11,16 +11,20 @@ function AboutCard() {
             Hi Everyone, I am <span className="purple">Abinash Sinha</span> from{" "}
             <span className="purple">Lucknow, India.</span>
             <br />
-            I am currently working as a <strong>Full-Stack Developer</strong> at{" "}
-            <span className="purple">Aayan Infotech</span>, where I build and maintain scalable web applications using the MERN stack.
+            I am currently working as a <strong>Full-Stack Engineer</strong> at{" "}
+            <span className="purple">Aayan Infotech Pvt. Ltd.</span>, where I build and maintain scalable web applications using the MERN stack.
             <br />
             I hold an <strong>Integrated MCA</strong> degree in Computer Application from{" "}
             <span className="purple">Chandigarh University</span>.
             <br />
             <br />
-            I have 2+ years of professional experience, having previously worked with teams on projects involving React, Vue.js, Node.js, Stripe integrations, and more.
+            I have approximately 3 years of professional experience, having previously worked on projects involving React, Vue.js, Node.js, Stripe integrations, and more.
             <br />
-            I enjoy building full-featured products from the ground up and solving real-world problems with clean and efficient code.
+            <br />
+            My technical skills include React.js, React Native, Next.js, Vue.js, Redux, Node.js, Express.js, MongoDB, Firebase, SQL, AWS (Basic), and payment integrations like Stripe.
+            <br />
+            <br />
+            I enjoy building feature-rich, scalable products from the ground up and solving real-world problems with clean, efficient code.
             <br />
             <br />
             Apart from coding, here are a few things I love doing:
@@ -47,5 +51,6 @@ function AboutCard() {
     </Card>
   );
 }
+
 
 export default AboutCard;
