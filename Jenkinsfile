@@ -5,7 +5,7 @@ pipeline {
         IMAGE_NAME = "docker.io/abinashsinha01/abinash-portfolio"
         IMAGE_TAG = "${BUILD_NUMBER}"
         CONTAINER_PORT = "2836"
-        HOST_PORT = "2233"
+        HOST_PORT = "2836"
         CONTAINER_NAME = "${JOB_BASE_NAME}-container"
     }
  
