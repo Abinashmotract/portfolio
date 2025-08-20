@@ -21,4 +21,4 @@ RUN npm install -g serve
 EXPOSE 2836
 
 # Serve the app on port 2222
-CMD ["serve", "-s", "dist", "-l", "2836"]
+CMD ["serve", "-s", "build", "-l", "2836"]
