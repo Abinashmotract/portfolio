@@ -1,31 +1,21 @@
 pipeline {
     agent any
-
+ 
     environment {
-        IMAGE_NAME = "docker.io/abinashsinha01/portfolio"
+        IMAGE_NAME = "docker.io/abinashsinha01/abinash-portfolio"
         IMAGE_TAG = "${BUILD_NUMBER}"
         CONTAINER_PORT = "2836"
-        HOST_PORT = "2836"
+        HOST_PORT = "2233"
         CONTAINER_NAME = "${JOB_BASE_NAME}-container"
     }
-
+ 
     stages {
         stage('Checkout Code') {
             steps {
                 checkout scm
             }
         }
-
-        stage('Build React App') {
-            steps {
-                sh '''
-                    echo "📦 Installing dependencies & building React app"
-                    npm install --force
-                    npm run build
-                '''
-            }
-        }
-
+ 
         stage('Login to Docker Hub') {
             steps {
                 script {
@@ -42,7 +32,15 @@ pipeline {
                 }
             }
         }
-
+ 
+        stage('Generate Next Image Tag') {
+            steps {
+                script {
+                    echo "✅ Using Image Tag: $IMAGE_TAG"
+                }
+            }
+        }
+ 
         stage('Build Docker Image') {
             steps {
                 sh '''
@@ -50,25 +48,36 @@ pipeline {
                 '''
             }
         }
-
-        stage('Tag & Push Docker Image') {
+ 
+        stage('Tag Docker Image') {
             steps {
                 sh '''
                     docker tag $IMAGE_NAME:$IMAGE_TAG $IMAGE_NAME:latest
+                '''
+            }
+        }
+ 
+        stage('Push Docker Image to Docker Hub') {
+            steps {
+                sh '''
                     docker push $IMAGE_NAME:$IMAGE_TAG
                     docker push $IMAGE_NAME:latest
                 '''
             }
         }
-
-        stage('Deploy Container') {
+ 
+        stage('Stop Existing Container') {
             steps {
                 sh '''
-                    echo "🛑 Stopping old container if exists"
                     docker stop $CONTAINER_NAME || true
                     docker rm $CONTAINER_NAME || true
-
-                    echo "🚀 Running new container"
+                '''
+            }
+        }
+ 
+        stage('Run New Docker Container') {
+            steps {
+                sh '''
                     docker run -d \
                     --name $CONTAINER_NAME \
                     -p $HOST_PORT:$CONTAINER_PORT \
@@ -77,7 +86,7 @@ pipeline {
             }
         }
     }
-
+ 
     post {
         always {
             script {
